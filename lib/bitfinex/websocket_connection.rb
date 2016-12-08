@@ -97,7 +97,7 @@ module Bitfinex
   
     def fingerprint(msg)
       msg.reject{|k,v| [:event,'chanId','event'].include?(k) }.
-          inject({}){|h, (k,v)| h[k.to_sym]=v.to_s; h}
+          inject({}){|h, (k,v)| h[k.to_sym]=v.to_s.downcase; h}
     end
   
     def listen
